@@ -1,33 +1,41 @@
 const question = [
     {
-        'que': 'Which of the folling is a markup language',
+        'que': 'Which of the following is a markup language',
         'a': 'HTML',
         'b': 'CSS',
         'c': 'JavaScript',
         'd': 'PHP',
-        'correct':'a'
+        'correct':"a"
     },
     {
         'que': 'What year was JavaScript launched',
-        'a': '1996',
+        'a': '1994',
         'b': '1996',
         'c': '1995',
         'd': 'None of the above',
-        'correct':'b'
+        'correct':"b"
     },
     {
         'que': 'What does CSS stands for?',
         'a': 'Hyper Text Markup Language',
-        'b': 'Cascadinf Style Sheet',
+        'b': 'Cascading Style Sheet',
         'c': 'Cyber Security Services',
         'd': 'Comrade Serves the Soviet',
-        'correct':'b'
+        'correct':"b"
     }
 ]
-let index = 0 ;
+let index = 0;
+let total = question.length;
+let right = 0, wrong = 0;
 const queBox = document.getElementById('queBox');
 const optionInputs=document.querySelectorAll('.option')
-const loadQuestion = () => { 
+const loadQuestion = () => {
+    if (index === total) {
+        return endQuiz()
+    }
+    reset()
+   
+    
     const data = question[index];
     console.log(data);
     queBox.innerText = ` ${index + 1}) ${data.que}`;
@@ -39,18 +47,48 @@ const loadQuestion = () => {
 }
 
 const submitQuiz = () => { 
-    const ans=getAnswer()
+    const data = question[index];
+    const ans = getAnswer()
+    if (ans === data.correct) {
+        right++;
+    } else { 
+        wrong++;
+    }
+    index++;
+    loadQuestion();
+    return;
 }
-const getAnswer = () => { 
+const getAnswer = () => {
+    let answer;
     optionInputs.forEach(
         (input) => { 
             if (input.checked) { 
-                console.log("Yes")
-            } else {
-                console.log("no")
+                answer = input.value;
             }
         }
     )
+    return answer;
+}
+const reset = () => {
+    optionInputs.forEach(
+        (input) => { 
+            input.checked = false;
+        }
+    )
+}
+const endQuiz = () => { 
+    document.getElementById("box").innerHTML = `
+        <h1>Thank you for playing the Quiz</h1>
+        <h2>You scored ${right} out of ${total} </h2>
+        <style>
+            h1{
+                color:purple;
+            }
+            h2{
+                color:Green;
+            }
+        </style>
+    `
 }
 //initial call
 loadQuestion();
