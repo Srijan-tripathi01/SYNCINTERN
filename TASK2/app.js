@@ -38,5 +38,19 @@ const loadQuestion = () => {
     
 }
 
+const submitQuiz = () => { 
+    const ans=getAnswer()
+}
+const getAnswer = () => { 
+    optionInputs.forEach(
+        (input) => { 
+            if (input.checked) { 
+                console.log("Yes")
+            } else {
+                console.log("no")
+            }
+        }
+    )
+}
 //initial call
 loadQuestion();
