@@ -4,6 +4,20 @@
     
     <title>document</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function imgSlider(anything){
+            document.querySelector('.starbucks').src=anything;
+        }
+        function changeCircleColor(color){
+            const circle=document.querySelector('.circle'); 
+            const learn=document.querySelector('.Learn');
+            const s=document.querySelector('span');       
+            circle.style.background=color; 
+            learn.style.background=color; 
+            s.style.color=color;
+                 
+        }
+    </script>
     
 </head>
 
@@ -20,20 +34,20 @@
         </header>
         <div class="content">
             <div class="textBox">
-                <h2>It's not just coffee<br>It's <span class=".span">StarBuck</span></h2>
+                <h2>It's not just coffee<br>It's <span>StarBuck</span></h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum neque, aspernatur eum natus accusantium ipsa.
                      Ducimus sint eveniet, minima doloremque natus quisquam nam esse.
                       Magni cupiditate veniam ex consequatur atque?</p>
-                <a href="#">Learn More</a>
+                <a href="#" class="Learn">Learn More</a>
             </div>
             <div class="imgBox">
                 <img src="Resource/img1.png" class="starbucks">
             </div>
         </div>
         <ul class="thumb">
-            <li><img src="Resource/thumb1.png" oneclick="imgSlider('Resource/img1.png') ; changeCircleColor('#017143')"></li>
-            <li><img src="Resource/thumb2.png" oneclick="imgSlider('Resource/img2.png') ; changeCircleColor('#eb7495')"></li>
-            <li><img src="Resource/thumb3.png" oneclick="imgSlider('Resource/img3.png') ; changeCircleColor('#d752b1')"></li>
+            <li><img src="Resource/thumb1.png" onclick="imgSlider('Resource/img1.png') ; changeCircleColor('#017143')"></li>
+            <li><img src="Resource/thumb2.png" onclick="imgSlider('Resource/img2.png') ; changeCircleColor('#eb7495')"></li>
+            <li><img src="Resource/thumb3.png" onclick="imgSlider('Resource/img3.png') ; changeCircleColor('#d752b1')"></li>
         </ul>
         <ul class="sci">
             <li><a href="#"><img src="Resource/facebook.png" ></a></li>
@@ -41,14 +55,7 @@
             <li><a href="#"><img src="Resource/instagram.png" ></a></li>
         </ul>
     </section>
-    <script type="text/javascript">
-        function imgSlider(anything){
-            document.querySelector('.starbucks').src=anything;
-        }
-        function changeCircleColor(color){
-            const circle=document.querySelector('.circle');        
-            circle.style.background=color;        
-        }
-    </script> 
+     
 </body>
+
 </html>
