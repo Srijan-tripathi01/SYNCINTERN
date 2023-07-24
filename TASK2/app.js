@@ -78,10 +78,10 @@ const reset = () => {
 }
 const endQuiz = () => { 
     document.getElementById("box").innerHTML = `
-        <h1>Thank you for playing the Quiz</h1>
+        <h1 class="Score">Thank you for playing the Quiz</h1>
         <h2>You scored ${right} out of ${total} </h2>
         <style>
-            h1{
+            .Score{
                 color:purple;
             }
             h2{
